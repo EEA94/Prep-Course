@@ -9,12 +9,13 @@ function deObjetoAmatriz(objeto){
       B: 2,
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
-  //Escribe tu código aquí
-  var nuevoArray = []
-  for(clave in objeto){
-    nuevoArray.push([clave, objeto[clave]])
-  }
-  return nuevoArray;
+  // Escribe tu código aquí
+  // var nuevoArray = []
+  // for(clave in objeto){
+  //   nuevoArray.push([clave, objeto[clave]])
+  // }
+  // return nuevoArray;
+  return Object.entries(objeto);
 }
 
 
@@ -122,19 +123,22 @@ function sortArray(arr) {
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
   //ORDENAMIENTO BUBBLESORT.
-  let swap = true
-while(swap){
-  swap = false;
-  for(let i=0; i<arr.length-1; i++){ //array.length -1 porque en la linea de abajo compara el actual con el siguiente.
-    if(arr[i].length> arr[i+1].length){
-      let aux = arr[i]  //guardamos el valor actual en una variable aux,
-      arr[i] = arr[i+1]   //al valor actual le asignamos el valor del siguiente,
-      arr[i+1] = aux    //al valor siguiente le asignamos el valor de actual guardado en aux.
-      swap = true //se activa de nuevo el ingreso al while.
-    }
-  }
-}
-return arr;
+//   let swap = true
+// while(swap){
+//   swap = false;
+//   for(let i=0; i<arr.length-1; i++){ //array.length -1 porque en la linea de abajo compara el actual con el siguiente.
+//     if(arr[i].length> arr[i+1].length){
+//       let aux = arr[i]  //guardamos el valor actual en una variable aux,
+//       arr[i] = arr[i+1]   //al valor actual le asignamos el valor del siguiente,
+//       arr[i+1] = aux    //al valor siguiente le asignamos el valor de actual guardado en aux.
+//       swap = true //se activa de nuevo el ingreso al while.
+//     }
+//   }
+// }
+// return arr;
+return arr.sort(function(a,b){
+  return a.length-b.length;
+})
 }
 
 
