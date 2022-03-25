@@ -75,14 +75,29 @@ function asAmirror(str) {
   // }
   // return nuevaFrase.trimEnd();
 
-   //["The", "Henry", "Challenge", "is", "close!"]
-        const cambios = str.split(" ").map(function (el) {
-          //             [T,h,e]->[e,h,T]->"ehT"
-              return el.split("").reverse().join("")})
-              //cambios = ["ehT","yrneH,"egnellahC","si","!esolc"]
-              return cambios.join(" ");//"ehT yrneH egnellahC si !esolc"        
-} 
+  //  //["The", "Henry", "Challenge", "is", "close!"]
+  //       const cambios = str.split(" ").map(function (el) {
+  //         //             [T,h,e]->[e,h,T]->"ehT"
+  //             return el.split("").reverse().join("")})
+  //             //cambios = ["ehT","yrneH,"egnellahC","si","!esolc"]
+  //             return cambios.join(" ");//"ehT yrneH egnellahC si !esolc"     
+  
+  String.prototype.invertir = function(){
+    var nuevaString = '';
+    for(var i = 0; i<this.length; i++){
+       // ''      =  't'    +  '' ---> 't'
+       // 't'     =  'o'    +  't'---> 'ot'
+       // 'ot'    =  'n'    +  'ot'---> 'not'
+       // 'not'   =  'i'    +  'not'---> 'inot'
+      nuevaString = this[i] + nuevaString;
+    }
+    return nuevaString;
+  }
+  //[The,Henry,Challenge,is,close!]
+ var resultado = str.split(" ").map(e=> e.invertir())
+ return resultado.join(" ") //"ehT ynreH egnellahC si !esolc"
 
+}
 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
